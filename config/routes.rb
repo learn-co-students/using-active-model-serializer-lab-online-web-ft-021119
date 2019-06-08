@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :invoices
   resources :products, only: [:show, :index, :new, :create]
-  get '/products/:id.json', to: 'products#show'
+  #get '/products/:id.json', to: 'products#show'
   # get '/products/:id/description', to: 'products#description'
   # get '/products/:id/inventory', to: 'products#inventory'
 end
