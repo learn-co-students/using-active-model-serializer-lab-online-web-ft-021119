@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def description
-    product = Product.find(params[:id])
+    product = Product.find_by_id(params[:id])
     render plain: product.description
   end
 
@@ -23,10 +23,11 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    # binding.pry
+    @product = Product.find_by_id(params[:id])
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @product.to_json(only: [:id, :name, :description, :price, :inventory])}
+      format.json {render json: @product.to_json(only: [:id, :name, :price, :inventory, :description])}
     end
   end
 
